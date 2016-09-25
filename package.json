@@ -1,0 +1,67 @@
+{
+  "name": "config-dburi",
+  "version": "0.0.0",
+  "description": "Get database uris for your config settings",
+  "main": "src",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint -s",
+    "test": "istanbul cover _mocha",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "codeclimate": "codeclimate-test-reporter < coverage/lcov.info",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags && npm publish",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags && npm publish",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags && npm publish"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lgaticaq/config-dburi.git"
+  },
+  "keywords": [],
+  "author": "Leonardo Gatica",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgaticaq/config-dburi/issues"
+  },
+  "homepage": "https://github.com/lgaticaq/config-dburi#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.3.3",
+    "coveralls": "^2.11.14",
+    "eslint": "3.6.0",
+    "generate-changelog": "^1.0.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "indent": [
+        2,
+        2
+      ],
+      "linebreak-style": [
+        2,
+        "unix"
+      ],
+      "quotes": [
+        2,
+        "single"
+      ],
+      "semi": [
+        2,
+        "always"
+      ]
+    }
+  },
+  "tonicExampleFilename": "example.js"
+}
