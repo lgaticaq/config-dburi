@@ -1,6 +1,6 @@
 {
   "name": "config-dburi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Get database uris for your config settings",
   "main": "src",
   "scripts": {
