@@ -23,7 +23,7 @@ const getRedisUri = () => {
 
 const getPostgresqlUri = password => {
   const username = process.env.POSTGRES_USER || 'postgres';
-  const dbname = process.env.POSTGRES_USER || 'postgres';
+  const dbname = process.env.POSTGRES_DB || process.env.POSTGRES_USER || 'postgres';
   password = password || process.env.POSTGRES_PASSWORD || 'mysecretpassword';
   let uri = `postgres://${username}:${password}@localhost/${dbname}`;
   if (process.env.POSTGRES_PORT_5432_TCP_ADDR && process.env.POSTGRES_PORT_5432_TCP_PORT && process.env.POSTGRES_PASSWORD) {
