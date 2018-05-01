@@ -59,5 +59,11 @@
       ]
     }
   },
+  "renovate": {
+    "automerge": "minor",
+    "extends": [
+      ":library"
+    ]
+  },
   "tonicExampleFilename": "example.js"
 }
