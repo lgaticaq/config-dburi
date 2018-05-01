@@ -19,9 +19,13 @@ npm i -S config-dburi
 
 [Try on Tonic](https://tonicdev.com/npm/config-dburi)
 ```js
-const dburi = require('config-dburi');
+const dburi = require('config-dburi')
 
-console.log(dburi.mongo()); // mongodb://localhost/test
+console.log(dburi.mongo()) // mongodb://localhost/test
+console.log(dburi.mongo('mydb')) // mongodb://localhost/mydb
+console.log(dburi.redis()) // redis://localhost
+console.log(dburi.postgres()) // postgres://postgres:mysecretpassword@localhost/postgres
+console.log(dburi.postgres('mypassword')) // postgres://postgres:mypassword@localhost/postgres
 ```
 
 ## License
