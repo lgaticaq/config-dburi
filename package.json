@@ -4,8 +4,10 @@
   "description": "Get database uris for your config settings",
   "main": "src",
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint -s",
+    "lint": "eslint --fix .",
+    "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
+    "precommit": "lint-staged",
+    "pretest": "npm run lint -s && npm run format -s",
     "test": "istanbul cover _mocha",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags && npm publish",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags && npm publish",
@@ -30,34 +32,41 @@
     "chai": "4.1.2",
     "coveralls": "3.0.1",
     "eslint": "4.19.1",
+    "eslint-config-standard": "11.0.0",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-node": "6.0.1",
+    "eslint-plugin-promise": "3.7.0",
+    "eslint-plugin-standard": "3.1.0",
+    "generate-changelog": "1.7.1",
+    "husky": "0.14.3",
     "istanbul": "0.4.5",
-    "mocha": "5.1.1"
+    "lint-staged": "7.0.5",
+    "mocha": "5.1.1",
+    "prettier-standard": "8.0.1"
   },
   "eslintConfig": {
-    "env": {
-      "es6": true,
-      "node": true,
-      "mocha": true
-    },
-    "extends": "eslint:recommended",
+    "extends": "standard",
     "rules": {
-      "indent": [
-        2,
-        2
-      ],
-      "linebreak-style": [
-        2,
-        "unix"
-      ],
-      "quotes": [
-        2,
-        "single"
-      ],
-      "semi": [
-        2,
-        "always"
+      "no-console": [
+        "error"
       ]
     }
+  },
+  "eslintIgnore": [
+    "example.js",
+    "coverage"
+  ],
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ],
+    "test/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ]
   },
   "renovate": {
     "automerge": "minor",
